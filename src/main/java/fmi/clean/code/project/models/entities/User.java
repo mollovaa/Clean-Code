@@ -1,7 +1,7 @@
-package fmi.clean.code.project.models;
+package fmi.clean.code.project.models.entities;
 
 
-import java.io.Serializable;
+import fmi.clean.code.project.models.entities.Comment;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

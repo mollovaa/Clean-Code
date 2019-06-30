@@ -1,7 +1,8 @@
-package fmi.clean.code.project.models;
+package fmi.clean.code.project.models.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import fmi.clean.code.project.models.entities.Comment;
 import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.CascadeType;
