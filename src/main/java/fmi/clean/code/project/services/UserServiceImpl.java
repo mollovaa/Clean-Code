@@ -1,6 +1,7 @@
 package fmi.clean.code.project.services;
 
 import fmi.clean.code.project.exceptions.InvalidInputException;
+import fmi.clean.code.project.exceptions.UserNotFoundException;
 import fmi.clean.code.project.mappers.UserMapper;
 import fmi.clean.code.project.models.dtos.UserLoginDto;
 import fmi.clean.code.project.models.dtos.UserRegisterDto;
@@ -22,6 +23,7 @@ import static fmi.clean.code.project.helpers.Constants.USERNAME_ALREADY_EXISTS;
 @Service
 public class UserServiceImpl implements UserService {
 
+  public static final String USER_WITH_ID_S_DOESN_T_EXIST = "User with id %s doesn't exist!";
   private UserRepository userRepository;
   private PasswordEncoder passwordEncoder;
   private UserMapper userMapper;
@@ -55,6 +57,17 @@ public class UserServiceImpl implements UserService {
       throw new InvalidInputException(INVALID_PASSWORD);
     }
     return SUCCESSFULLY_LOGIN;
+  }
+
+  @Override
+  public User findById(Long id) {
+    return userRepository.findById(id)
+        .orElseThrow(() -> new UserNotFoundException(String.format(USER_WITH_ID_S_DOESN_T_EXIST, id)));
+  }
+
+  @Override
+  public User save(User user) {
+    return userRepository.save(user);
   }
 
   private String saveUser(UserRegisterDto userRegisterDto) {

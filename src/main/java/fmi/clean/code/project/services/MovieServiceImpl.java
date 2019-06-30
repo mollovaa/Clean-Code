@@ -30,4 +30,9 @@ public class MovieServiceImpl implements MovieService {
     return movieRepository.findById(id)
         .orElseThrow(() -> new MovieNotFoundException(String.format(MOVIE_WITH_ID_S_DOESN_T_EXIST, id)));
   }
+
+  @Override
+  public Movie save(Movie movie) {
+    return movieRepository.save(movie);
+  }
 }

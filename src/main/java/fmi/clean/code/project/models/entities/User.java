@@ -32,7 +32,7 @@ public class User {
   @Column(name = "password", nullable = false)
   private String password;
 
-  @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "publisher")
   private List<Comment> comments;
 
   public User(String password) {

@@ -18,4 +18,7 @@ public class Constants {
   public static final String SUCCESSFULLY_REGISTERED = "Successfully registered!";
 
   public static final String MOVIE_WITH_ID_S_DOESN_T_EXIST = "Movie with id %s doesn't exist!";
+
+  public static final String INVALID_COMMENT_MESSAGE = "Invalid comment message!";
+
 }

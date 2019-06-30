@@ -1,6 +1,7 @@
 package fmi.clean.code.project.models.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,10 +27,12 @@ public class Comment {
   @Column(name = "date_of_publication")
   private LocalDate dateOfPublication;
 
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "movie_id", referencedColumnName = "id")
   private Movie movie;
 
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "publisher_id", referencedColumnName = "id")
   private User publisher;
