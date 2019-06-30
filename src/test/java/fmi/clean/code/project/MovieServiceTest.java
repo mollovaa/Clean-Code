@@ -37,7 +37,6 @@ public class MovieServiceTest {
   @Test
   public void getAll_NoMovies() {
     when(movieRepository.findAll()).thenReturn(new ArrayList<>());
-    when(movieMapper.movieToMovieListDto(new Movie())).thenReturn(new MovieListDto());
 
     List<MovieListDto> result = movieService.getAllMovies();
 
