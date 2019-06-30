@@ -25,7 +25,7 @@ public class Movie {
   private Long id;
   @Column(name = "title")
   private String title;
-  @Column(name = "description")
+  @Column(name = "description", length = 5000)
   private String description;
   @Column(name = "rating")
   private Double rating;
