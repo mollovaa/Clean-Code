@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.mapstruct.Named;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 @Data
@@ -32,4 +35,7 @@ public class User {
   @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
   private List<Comment> comments;
 
+  public User(String password) {
+    this.password = password;
+  }
 }
