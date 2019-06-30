@@ -26,4 +26,9 @@ public class MovieController {
   public ResponseEntity getMovie(@PathVariable(name = "id") Long id) {
     return ResponseEntity.ok(movieService.getMovie(id));
   }
+
+  @GetMapping(value = "/movies/{id}/comments")
+  public ResponseEntity getAllCommentsOfMovie(@PathVariable(name = "id") Long id) {
+    return ResponseEntity.ok(movieService.getAllCommentsOfMovie(id));
+  }
 }

@@ -26,7 +26,7 @@ public class CommentServiceImpl implements CommentService {
 
   @Override
   public Movie commentMovie(Long movieId, Comment comment, Long publisherId) {
-    Movie movie = movieService.getMovie(movieId);
+    Movie movie = movieService.getMovieById(movieId);
     User user = userService.findById(publisherId);
     return saveComment(comment, user, movie);
   }
