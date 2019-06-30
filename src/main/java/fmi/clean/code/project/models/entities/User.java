@@ -1,9 +1,9 @@
 package fmi.clean.code.project.models.entities;
 
 
-import fmi.clean.code.project.models.entities.Comment;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.mapstruct.Named;
 
-@NoArgsConstructor
+
 @Entity
 @Table(name = "users")
 @Data
@@ -35,7 +33,12 @@ public class User {
   @OneToMany(mappedBy = "publisher")
   private List<Comment> comments;
 
+  public User() {
+    this.comments = new ArrayList<>();
+  }
+
   public User(String password) {
+    this();
     this.password = password;
   }
 }

@@ -12,7 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "comments")
 @Data
@@ -37,4 +39,7 @@ public class Comment {
   @JoinColumn(name = "publisher_id", referencedColumnName = "id")
   private User publisher;
 
+  public Comment(String message) {
+    this.message = message;
+  }
 }

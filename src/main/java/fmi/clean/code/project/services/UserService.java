@@ -11,7 +11,7 @@ public interface UserService {
 
   String login(UserLoginDto userLoginDto) throws InvalidInputException;
 
-  User findById(Long id);
+  User getById(Long id);
 
   User save(User user);
 }
