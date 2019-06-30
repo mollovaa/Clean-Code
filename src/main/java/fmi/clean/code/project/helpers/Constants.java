@@ -16,4 +16,6 @@ public class Constants {
   public static final String PASSWORDS_DON_T_MATCH = "Passwords don't match!";
   public static final String SUCCESSFULLY_LOGIN = "Successfully login!";
   public static final String SUCCESSFULLY_REGISTERED = "Successfully registered!";
+
+  public static final String MOVIE_WITH_ID_S_DOESN_T_EXIST = "Movie with id %s doesn't exist!";
 }

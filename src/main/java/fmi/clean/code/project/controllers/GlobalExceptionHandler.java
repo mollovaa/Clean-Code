@@ -1,6 +1,7 @@
 package fmi.clean.code.project.controllers;
 
 import fmi.clean.code.project.exceptions.InvalidInputException;
+import fmi.clean.code.project.exceptions.MovieNotFoundException;
 import fmi.clean.code.project.helpers.ResponseMessage;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +33,12 @@ public class GlobalExceptionHandler {
         .map(DefaultMessageSourceResolvable::getDefaultMessage)
         .collect(Collectors.toList());
     return new ResponseMessage(HttpStatus.BAD_REQUEST, errorList.toString());
+  }
+
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ExceptionHandler( {MovieNotFoundException.class})
+  public ResponseMessage handleMovieNotFound(MovieNotFoundException ex) {
+    return new ResponseMessage(HttpStatus.NOT_FOUND, ex.getMessage());
   }
 
 }
